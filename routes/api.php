@@ -21,6 +21,10 @@ Route::post('/user/register', 'AuthController@register');
 Route::post('/user/login', 'AuthController@login');
 Route::post('/user/logout', 'AuthController@logout');
 Route::get('/user/me', 'AuthController@me');
+Route::get('/user/feed', 'PostController@feed');
+
+
+Route::get('/posts/own', 'PostController@own');
 
 Route::post('/follow/{id}', 'FollowingController@follow');
 Route::post('/user/following', 'FollowingController@getFollowing');
