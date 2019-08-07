@@ -5,6 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Uuid;
+
+function fibo($n){
+    if ($n < 0) {
+        return 0;
+    }
+    if ($n == 0){
+        return 1;
+    }
+    return fibo($n - 1) + fibo($n - 2);
+}
+
 class AuthController extends Controller
 {
     protected function respondWithToken($token){
@@ -42,4 +53,8 @@ class AuthController extends Controller
         $user = auth()->userOrFail();
         return response()->json(["user" => $user], 200);
     }
+    public function comp(){      
+        return response()->json(["message" => fibo(10)], 200);
+    }
+
 }
